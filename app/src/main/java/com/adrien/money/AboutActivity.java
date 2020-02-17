@@ -14,7 +14,8 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         Intent intent = getIntent();
-        String displayValue = intent.getStringExtra("aDisplayValue");
+        User userClass = intent.getParcelableExtra("aUserObject");
+        String displayValue = userClass.getDisplayInfo();
         TextView displayTextView = findViewById(R.id.aboutTextView);
 
         displayTextView.setText(displayValue);

@@ -45,7 +45,11 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                intent.putExtra("aDisplayValue", "le 42");
+                intent.putExtra("aDisplayValueTest", 1 + "value has been passed");
+
+                User userIntent = new User("User text info");
+                intent.putExtra("aUserObject", userIntent);
+
                 startActivity(intent);
             }
         });
