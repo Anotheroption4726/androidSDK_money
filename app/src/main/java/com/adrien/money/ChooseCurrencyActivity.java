@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Currency;
-
 public class ChooseCurrencyActivity extends AppCompatActivity
 {
     @Override
@@ -27,7 +25,7 @@ public class ChooseCurrencyActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(ChooseCurrencyActivity.this, MainActivity.class);
 
-                Currency kztCurrency = new Currency("", 1, 408.48f);
+                Currency kztCurrency = new Currency("₸", 1, 408.48f);
                 intent.putExtra("chosenCurrency", kztCurrency);
 
                 startActivity(intent);

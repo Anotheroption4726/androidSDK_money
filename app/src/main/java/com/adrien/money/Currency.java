@@ -1,3 +1,5 @@
+package com.adrien.money;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 

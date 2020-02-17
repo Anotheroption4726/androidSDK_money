@@ -18,8 +18,17 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         final EditText inputEurValue = findViewById(R.id.euroInput);
-        final TextView displayKzt = findViewById(R.id.kztView);
+        final TextView displayCurrency = findViewById(R.id.currencyView);
         final Button convertBtn = findViewById(R.id.convertButton);
+        final Button changeCurrencyButton = findViewById(R.id.chooseCurrencyButton);
+
+        Intent intent = getIntent();
+        Currency chosenCurrency = intent.getParcelableExtra("chosenCurrency");
+
+        //String displayValue = chosenCurrency.getDisplayInfo();
+        //TextView displayTextView = findViewById(R.id.aboutTextView);
+
+        //displayTextView.setText(displayValue);
 
         convertBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -30,14 +39,9 @@ public class MainActivity extends AppCompatActivity
                 float inputEuro = Float.parseFloat(inputTextEurValue);
                 float convertedKztValue = convertKzt(inputEuro);
                 //Log.i("MainActivity", inputTextEurValue);
-                displayKzt.setText(convertedKztValue + " ₸");
+                displayCurrency.setText(convertedKztValue + " ₸");
             }
         });
-
-
-
-
-        final Button changeCurrencyButton = findViewById(R.id.chooseCurrencyButton);
 
         changeCurrencyButton.setOnClickListener(new View.OnClickListener()
         {
@@ -45,18 +49,9 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent intent = new Intent(MainActivity.this, ChooseCurrencyActivity.class);
-                intent.putExtra("aDisplayValueTest", 1 + "value has been passed");
-
-                User userIntent = new User("User text info");
-                intent.putExtra("aUserObject", userIntent);
-
                 startActivity(intent);
             }
         });
-
-
-
-
     }
 
 
