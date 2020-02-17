@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-    //final Button convertBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -38,11 +36,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        /////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
         final Button aboutButton = findViewById(R.id.aboutButton);
 
@@ -52,15 +45,11 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                intent.putExtra("aDisplayValue", "le 42");
                 startActivity(intent);
             }
         });
     }
-
-
-
-
-
 
 
 
