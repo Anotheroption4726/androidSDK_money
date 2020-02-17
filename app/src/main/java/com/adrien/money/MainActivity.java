@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        final Button aboutButton = findViewById(R.id.aboutButton);
+        final Button changeCurrencyButton = findViewById(R.id.chooseCurrencyButton);
 
-        aboutButton.setOnClickListener(new View.OnClickListener()
+        changeCurrencyButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChooseCurrencyActivity.class);
                 intent.putExtra("aDisplayValueTest", 1 + "value has been passed");
 
                 User userIntent = new User("User text info");
@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+
+
+
     }
 
 
