@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
@@ -17,15 +18,18 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Intent intent = getIntent();
+        final ImageView flagDisplay = findViewById(R.id.flagView);
         final EditText inputEurValue = findViewById(R.id.euroInput);
         final TextView displayCurrency = findViewById(R.id.currencyView);
         final Button convertBtn = findViewById(R.id.convertButton);
         final Button changeCurrencyButton = findViewById(R.id.chooseCurrencyButton);
 
-        final Intent intent = getIntent();
         final Currency chosenCurrency = intent.getParcelableExtra("chosenCurrency");
         final String currencySymbol = chosenCurrency.symbol;
         final float currencyRate = chosenCurrency.rate;
+
+        flagDisplay.setImageResource(R.drawable.kazakhstan_flag);
 
         convertBtn.setOnClickListener(new View.OnClickListener()
         {
