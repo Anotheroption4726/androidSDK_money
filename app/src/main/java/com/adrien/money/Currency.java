@@ -6,10 +6,10 @@ import android.os.Parcelable;
 public class Currency implements Parcelable
 {
     public String symbol;
-    public int flagId;
+    public String flagId;
     public float rate;
 
-    public Currency(String symbol, int flagId, float rate) {
+    public Currency(String symbol, String flagId, float rate) {
         this.symbol = symbol;
         this.flagId = flagId;
         this.rate = rate;
@@ -17,14 +17,14 @@ public class Currency implements Parcelable
 
     protected Currency(Parcel in) {
         symbol = in.readString();
-        flagId = in.readInt();
+        flagId = in.readString();
         rate = in.readFloat();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(symbol);
-        dest.writeInt(flagId);
+        dest.writeString(flagId);
         dest.writeFloat(rate);
     }
 

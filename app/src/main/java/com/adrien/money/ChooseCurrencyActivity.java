@@ -25,7 +25,7 @@ public class ChooseCurrencyActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(ChooseCurrencyActivity.this, MainActivity.class);
 
-                Currency kztCurrency = new Currency("₸", 1, 408.48f);
+                Currency kztCurrency = new Currency("₸", "kazakhstan", 408.48f);
                 intent.putExtra("chosenCurrency", kztCurrency);
 
                 startActivity(intent);
@@ -39,7 +39,7 @@ public class ChooseCurrencyActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(ChooseCurrencyActivity.this, MainActivity.class);
 
-                Currency idrCurrency = new Currency("Rp", 2, 14794.2f);
+                Currency idrCurrency = new Currency("Rp", "indonesia", 14794.2f);
                 intent.putExtra("chosenCurrency", idrCurrency);
 
                 startActivity(intent);

@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kazakhstan_flag" />
+        app:srcCompat="@drawable/indonesia_flag" />
 
     <EditText
         android:id="@+id/euroInput"

@@ -27,9 +27,17 @@ public class MainActivity extends AppCompatActivity
 
         final Currency chosenCurrency = intent.getParcelableExtra("chosenCurrency");
         final String currencySymbol = chosenCurrency.symbol;
+        final String flagId = chosenCurrency.flagId;
         final float currencyRate = chosenCurrency.rate;
 
-        flagDisplay.setImageResource(R.drawable.kazakhstan_flag);
+        if(flagId.equals("kazakhstan"))
+        {
+            flagDisplay.setImageResource(R.drawable.kazakhstan_flag);
+        }
+        else if(flagId.equals("indonesia"))
+        {
+            flagDisplay.setImageResource(R.drawable.indonesia_flag);
+        }
 
         convertBtn.setOnClickListener(new View.OnClickListener()
         {
