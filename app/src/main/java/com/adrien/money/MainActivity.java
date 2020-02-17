@@ -22,13 +22,10 @@ public class MainActivity extends AppCompatActivity
         final Button convertBtn = findViewById(R.id.convertButton);
         final Button changeCurrencyButton = findViewById(R.id.chooseCurrencyButton);
 
-        Intent intent = getIntent();
-        Currency chosenCurrency = intent.getParcelableExtra("chosenCurrency");
-
-        //String displayValue = chosenCurrency.getDisplayInfo();
-        //TextView displayTextView = findViewById(R.id.aboutTextView);
-
-        //displayTextView.setText(displayValue);
+        final Intent intent = getIntent();
+        final Currency chosenCurrency = intent.getParcelableExtra("chosenCurrency");
+        final String currencySymbol = chosenCurrency.symbol;
+        final float currencyRate = chosenCurrency.rate;
 
         convertBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -37,9 +34,8 @@ public class MainActivity extends AppCompatActivity
             {
                 String inputTextEurValue = inputEurValue.getText().toString();
                 float inputEuro = Float.parseFloat(inputTextEurValue);
-                float convertedKztValue = convertKzt(inputEuro);
-                //Log.i("MainActivity", inputTextEurValue);
-                displayCurrency.setText(convertedKztValue + " ₸");
+                float convertedValue = convertCurrency(inputEuro, currencyRate);
+                displayCurrency.setText(convertedValue + " " + currencySymbol);
             }
         });
 
@@ -54,12 +50,9 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-
-
-
-    private float convertKzt(float value)
+    private float convertCurrency(float value, float rate)
     {
-        return value * 408.48f; // euro to kzt conversion rate
+        return value * rate; // euro to kzt conversion rate
     }
 
 }

@@ -5,9 +5,9 @@ import android.os.Parcelable;
 
 public class Currency implements Parcelable
 {
-    String symbol;
-    int flagId;
-    float rate;
+    public String symbol;
+    public int flagId;
+    public float rate;
 
     public Currency(String symbol, int flagId, float rate) {
         this.symbol = symbol;

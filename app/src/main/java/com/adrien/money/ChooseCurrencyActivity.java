@@ -16,7 +16,7 @@ public class ChooseCurrencyActivity extends AppCompatActivity
         setContentView(R.layout.activity_choose_currency);
 
         final Button kztButton = findViewById(R.id.KztButton);
-        final Button IdrButton = findViewById(R.id.KztButton);
+        final Button idrButton = findViewById(R.id.IdrButton);
 
         kztButton.setOnClickListener(new View.OnClickListener()
         {
@@ -27,6 +27,20 @@ public class ChooseCurrencyActivity extends AppCompatActivity
 
                 Currency kztCurrency = new Currency("₸", 1, 408.48f);
                 intent.putExtra("chosenCurrency", kztCurrency);
+
+                startActivity(intent);
+            }
+        });
+
+        idrButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(ChooseCurrencyActivity.this, MainActivity.class);
+
+                Currency idrCurrency = new Currency("Rp", 2, 14794.2f);
+                intent.putExtra("chosenCurrency", idrCurrency);
 
                 startActivity(intent);
             }
