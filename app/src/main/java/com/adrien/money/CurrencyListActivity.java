@@ -1,14 +1,25 @@
 package com.adrien.money;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class CurrencyListActivity extends AppCompatActivity {
-
+public class CurrencyListActivity extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_list);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
     }
 }
