@@ -2,6 +2,7 @@ package com.adrien.money;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
+    private float convertedValue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -45,8 +48,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String inputTextEurValue = inputEurValue.getText().toString();
-                float inputEuro = Float.parseFloat(inputTextEurValue);
-                float convertedValue = convertCurrency(inputEuro, currencyRate);
+                final float inputEuro = Float.parseFloat(inputTextEurValue);
+                convertedValue = convertCurrency(inputEuro, currencyRate);
                 displayCurrency.setText(convertedValue + " " + currencySymbol);
             }
         });
@@ -56,8 +59,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, ChooseCurrencyActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(MainActivity.this, ChooseCurrencyActivity.class);
+
+                Intent intent = new Intent();
+                intent.putExtra("convertedValue", convertedValue);
+                intent.putExtra("convertedSymbol", currencySymbol);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+
+                //startActivity(intent);
             }
         });
     }
@@ -66,5 +76,4 @@ public class MainActivity extends AppCompatActivity
     {
         return value * rate; // euro to kzt conversion rate
     }
-
 }
